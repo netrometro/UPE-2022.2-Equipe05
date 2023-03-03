@@ -1,6 +1,6 @@
-import { prisma } from "../services/prisma";
+const { prisma } = require("../services/prisma")
 
-export const createUser = async (data) => {
+exports.createUser = async (data) => {
     const user = await prisma.user.create({
         data,
         select: {
@@ -13,7 +13,7 @@ export const createUser = async (data) => {
     return user;
 }
 
-export const getById = async (id) =>  {
+exports.getById = async (id) =>  {
     const user = await prisma.user.findUnique({
         where: {
             id

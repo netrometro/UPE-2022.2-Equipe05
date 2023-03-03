@@ -1,6 +1,6 @@
-import { createUser, getById } from "../repositories/user_repository";
+const { createUser, getById } = require("../repositories/user_repository");
 
-export const create = async (req, res) => {
+exports.create = async (req, res) => {
     try {
         const user = await createUser(req.body);
         res.status(200).send(user)
@@ -10,7 +10,7 @@ export const create = async (req, res) => {
     }
 }
 
-export const getId = async (req, res) => {
+exports.getId = async (req, res) => {
     try {
         const user = await getById(Number(req.params.id));
         res.status(200).send(user);
