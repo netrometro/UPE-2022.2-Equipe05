@@ -1,10 +1,12 @@
 const bcrypt = require("bcrypt");
 const { createUser, getById } = require("../repositories/user_repository");
+const { userValidation } = require("../validations/user_validation");
 
 exports.create = async (req, res) => {
     try {
+        const data = await userValidation.parse(req.body);
         req.body.password = bcrypt.hashSync(req.body.password, 10)
-        const user = await createUser(req.body);
+        const user = await createUser(data);
         res.status(200).send(user)
     } catch (e) {
         console.log(e)
