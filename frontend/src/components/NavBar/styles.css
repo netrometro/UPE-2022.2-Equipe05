@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #091323;
+    width: 100vw;
+    height: 17vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 40px;
+
+    width: 70%;
+}
+
+.navbar .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 30%;
+}
+
+.navbar .menu .menuButton {
+    height: 35px;
+    width: 160px;
+    font-size: 17px;
+}
+
+.navbar .menu .logoutButton {
+    height: 35px;
+    width: 120px;
+    font-size: 17px;
+    background-color: brown;
+}

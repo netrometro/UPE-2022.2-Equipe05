@@ -1,3 +1,5 @@
+import './styles.css';
+
 export function TextInput({type, name, id, placeholder, onChange, value}) {
 
     return (

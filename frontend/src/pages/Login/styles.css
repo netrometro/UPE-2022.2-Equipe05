@@ -1,0 +1,85 @@
+.background {
+    background-color: #D9D9D9;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.background .box {
+    width: 875px;
+    height: 550px;
+    background-color: white;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.background .box .logoBox {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: #091323;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.background .box .logoBox .slogan{
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.background .box .loginBox {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.background .box .loginBox .spanLogin{
+    padding-bottom: 20px ;
+    font-size: 25px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #091323;
+}
+
+.background .box .loginBox form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.background .box .loginBox form label {
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 7px;
+    padding-top: 11px;
+    padding-left: 10px;
+}
+
+.background .box .loginBox form Button {
+    margin-top: 20px;
+}
+
+.background .box .loginBox form .containerButton {
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.background .box .loginBox form .containerButton a {
+    color: #091323;
+    font-weight: 700;
+    font-size: 17px;
+}

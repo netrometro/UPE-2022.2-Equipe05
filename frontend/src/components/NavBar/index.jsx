@@ -1,20 +1,23 @@
+import "./styles.css"
 import { useNavigate, Link } from 'react-router-dom';
 
 export function NavBar() {
     const navigate = useNavigate();
 
     return (
-     <div>
-        <div>
-            <span>WiseWallet</span> {/*aqui vai o logo*/}
+     <div className='navbar'>
+        <div className='logo'>
+            <Link to="/">
+                <img src="../../../public/WISEWALLET.png" alt="Logo WiseWallet" width="350" />
+            </Link>
         </div>
-        <div>
-            <button>TRANSAÇÕES</button>
-            <button>CONVERSOR</button>
-            <button>PLANEJAMENTO</button>
-            <button>CONTAS</button>
+        <div className='menu'>
+            <button className='menuButton'>TRANSAÇÕES</button>
+            <button className='menuButton'>CONVERSOR</button>
+            <button className='menuButton'>PLANEJAMENTO</button>
+            <button className='menuButton'>CONTAS</button>
             <Link to="/login">
-            <button onClick={() => localStorage.clear()} >SAIR</button>
+            <button className="logoutButton" onClick={() => localStorage.clear()} >SAIR</button>
             </Link>
         </div>
      </div>   

@@ -1,0 +1,18 @@
+div {
+    display: flex;
+    flex-direction: row;
+}
+
+div span {
+    color: white;
+
+    font-size: 8.4vh;
+}
+
+div .wise{
+    font-weight: 700;
+}
+
+div .wallet {
+    font-weight: 300;
+}
