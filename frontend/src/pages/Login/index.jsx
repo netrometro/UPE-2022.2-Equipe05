@@ -1,8 +1,11 @@
+import './styles.css';
+
 import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import { Button } from "../../components/Button";
-import { TextInput } from "../../components/TextInput"
+import { TextInput } from "../../components/TextInput";
+import { Logo } from "../../components/Logo"
 
 export function Login() {
   const navigate = useNavigate();
@@ -30,16 +33,25 @@ export function Login() {
   }
 
     return (
-      <div>
-        <form onSubmit={login}>
-            <h1>WISEWALLET</h1>
-            <label htmlFor="email">E-mail</label>
-            <TextInput id={"email"} type={"email"} name={"email"} placeholder={"Digite seu email"} value={data.email} onChange={ev => setData({...data, email: ev.target.value})}/>
-            <label htmlFor="password">Senha</label>
-            <TextInput id={"password"} type={"password"} name={"password"} placeholder={"**************"} value={data.password} onChange={ev => setData({...data, password: ev.target.value})}/>
-            <Button text={"LOGIN"} type={"submit"}/>
-            <Link to="/signup">Cadastre-se</Link>
-        </form>
+      <div className='background'>
+        <div className='box'>
+          <div className='logoBox'>
+            <Logo/>
+          </div>
+          <div className='loginBox'>
+            <form onSubmit={login}>
+              <span className='spanLogin'>Entre ou cadastre-se</span>
+              <label htmlFor="email">E-mail</label>
+              <TextInput id={"email"} type={"email"} name={"email"} placeholder={"Digite seu email"} value={data.email} onChange={ev => setData({...data, email: ev.target.value})}/>
+              <label htmlFor="password">Senha</label>
+              <TextInput id={"password"} type={"password"} name={"password"} placeholder={"**************"} value={data.password} onChange={ev => setData({...data, password: ev.target.value})}/>
+              <Button text={"LOGIN"} type={"submit"}/>
+              <div className='containerButton'>
+                <Link className='cadastro' to="/signup">Cadastre-se</Link>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
