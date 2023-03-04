@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Button } from "../../components/Button";
 import { TextInput } from "../../components/TextInput"
 
 export function Login() {
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     email: "",
@@ -16,6 +18,7 @@ export function Login() {
       const response = await axios.post("http://localhost:3001/login", data);
       const token = { token: response?.data?.token }
       localStorage.setItem("wisewallet", JSON.stringify(token));
+      navigate("/");
     } catch(e) {
       console.log(e)
     }
