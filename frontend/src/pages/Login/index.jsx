@@ -37,6 +37,7 @@ export function Login() {
         <div className='box'>
           <div className='logoBox'>
             <Logo/>
+            <span className='slogan'>FACILITANDO SUA VIDA FINANCEIRA</span>
           </div>
           <div className='loginBox'>
             <form onSubmit={login}>

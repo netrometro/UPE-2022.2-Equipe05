@@ -1,0 +1,50 @@
+.background .box .registerBox {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.background .box .registerBox .spanRegister{
+    padding-bottom: 20px ;
+    font-size: 25px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #091323;
+}
+
+.background .box .registerBox form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.background .box .registerBox form label {
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 7px;
+    padding-top: 11px;
+    padding-left: 10px;
+}
+
+.background .box .registerBox form Button {
+    margin-top: 20px;
+}
+
+.background .box .registerBox form .containerButtonRegister {
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.background .box .registerBox form .containerButtonRegister a {
+    color: #091323;
+    font-weight: 700;
+    font-size: 17px;
+}

@@ -19,11 +19,18 @@
 }
 
 .background .box .logoBox {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     background-color: #091323;
     justify-content: center;
     align-items: center;
     border-radius: 15px 0px 0px 15px;
+}
+
+.background .box .logoBox .slogan{
+    font-size: 13px;
+    font-weight: 100;
 }
 
 .background .box .loginBox {
@@ -74,5 +81,5 @@
 .background .box .loginBox form .containerButton a {
     color: #091323;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 17px;
 }
