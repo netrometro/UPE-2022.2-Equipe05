@@ -1,5 +1,6 @@
 import { Button } from "../../components/Button";
 import { TextInput } from "../../components/TextInput"
+import { NavBar } from "../../components/NavBar"
 import { useEffect } from 'react'
 
 export function Home() {
@@ -12,8 +13,7 @@ export function Home() {
 
     return (
       <div>
-        <h1>WiseWallet</h1>
-        <span>HomePage</span>
+        <NavBar/>
       </div>
     )
   }
