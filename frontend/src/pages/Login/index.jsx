@@ -14,7 +14,8 @@ export function Login() {
     try {
       ev.preventDefault();
       const response = await axios.post("http://localhost:3001/login", data);
-      console.log(response?.data)
+      const token = { token: response?.data?.token }
+      localStorage.setItem("wisewallet", JSON.stringify(token));
     } catch(e) {
       console.log(e)
     }
