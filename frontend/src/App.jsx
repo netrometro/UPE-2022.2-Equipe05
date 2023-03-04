@@ -1,10 +1,9 @@
 import "./global.css";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register"
+import { AppRoutes } from "./routes/AppRoutes"
 
 export function App() {
 
   return (
-    <Register/>
+    <AppRoutes/>
   )
 }
