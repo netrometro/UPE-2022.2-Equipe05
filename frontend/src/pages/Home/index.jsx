@@ -4,6 +4,7 @@ import { TextInput } from "../../components/TextInput"
 import { NavBar } from "../../components/NavBar"
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import "./styles.css"
 
 export function Home() {
 
@@ -26,7 +27,7 @@ export function Home() {
   });
 
     return (
-      <div>
+      <div className='homeBox'>
         <NavBar/>
         <span>Olá {user.name}</span>
       </div>
