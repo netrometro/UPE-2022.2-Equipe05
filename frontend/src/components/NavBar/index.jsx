@@ -1,4 +1,7 @@
+import { useNavigate, Link } from 'react-router-dom';
+
 export function NavBar() {
+    const navigate = useNavigate();
 
     return (
      <div>
@@ -10,7 +13,9 @@ export function NavBar() {
             <button>CONVERSOR</button>
             <button>PLANEJAMENTO</button>
             <button>CONTAS</button>
-            <button>SAIR</button>
+            <Link to="/login">
+            <button onClick={() => localStorage.clear()} >SAIR</button>
+            </Link>
         </div>
      </div>   
     )
