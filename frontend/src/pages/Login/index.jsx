@@ -14,13 +14,18 @@ export function Login() {
   
   const login = async (ev) => {
     try {
-      ev.preventDefault();
-      const response = await axios.post("http://localhost:3001/login", data);
-      const token = { token: response?.data?.token }
-      localStorage.setItem("wisewallet", JSON.stringify(token));
-      navigate("/");
+      if (data.password.length >= 6) {
+        ev.preventDefault();
+        const response = await axios.post("http://localhost:3001/login", data);
+        const token = { token: response?.data?.token }
+        localStorage.setItem("wisewallet", JSON.stringify(token));
+        navigate("/");
+      } else {
+        ev.preventDefault();
+        alert("Credenciais inválidas");
+      }
     } catch(e) {
-      console.log(e)
+      alert("Credenciais inválidas");
     }
   }
 
