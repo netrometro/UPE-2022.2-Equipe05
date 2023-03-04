@@ -1,13 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import "./global.css";
+import { Login } from "./pages/Login";
 
-function App() {
+export function App() {
 
   return (
-    <div>
-      <h1>WISEWALLET</h1>
-    </div>
+    <Login/>
   )
 }
-
-export default App
