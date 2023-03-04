@@ -11,15 +11,6 @@ exports.login = async (req, res) => {
         if (!user) throw {
             message: "Usuário não existe"
         };
-        console.log(typeof(req.body.password));
-        console.log(typeof(user.password));
-        console.log(req.body.password);
-        console.log(user.password);
-        console.log(user);
-        if (bcrypt.compareSync(data.password, user.password)) {
-            console.log("Entrou")
-        }
-        //console.log(bcrypt.compareSync(req.body.password, user.password))
 
         if (user && bcrypt.compareSync(req.body.password, user.password)) {
             const token = jwt.sign(
