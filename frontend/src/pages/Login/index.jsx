@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from "../../components/Button";
 import { TextInput } from "../../components/TextInput"
 
@@ -38,7 +38,7 @@ export function Login() {
             <label htmlFor="password">Senha</label>
             <TextInput id={"password"} type={"password"} name={"password"} placeholder={"**************"} value={data.password} onChange={ev => setData({...data, password: ev.target.value})}/>
             <Button text={"LOGIN"} type={"submit"}/>
-            <a href="">Cadastre-se</a>
+            <Link to="/signup">Cadastre-se</Link>
         </form>
       </div>
     )
