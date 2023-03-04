@@ -1,6 +1,6 @@
-export function TextInput({type, name, id, placeholder}) {
+export function TextInput({type, name, id, placeholder, onChange, value}) {
 
     return (
-        <input type={type} name={name} id={id} placeholder={placeholder}/>
+        <input type={type} name={name} id={id} placeholder={placeholder} required onChange={onChange} value={value}/>
     )
 }
