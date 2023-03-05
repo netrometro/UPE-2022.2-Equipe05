@@ -12,16 +12,14 @@ exports.getByUserId = async (userId) => {
   return transaction
 }
 
-// exports.getByUserIdAndType = async (userId, type) => {
-//   const transaction = await prisma.transaction.findMany({
-//     where: { 
-//       AND: [
-//         {
-//           userId,
-//           type
-//         }
-//       ]
-//     }
-//   })
-//   return transaction
-// }
+exports.getByUserIdAndType = async (userId, type) => {
+  const transaction = await prisma.transaction.findMany({
+    where: { 
+      AND: [
+        {userId},
+        {type}
+      ]
+    }
+  })
+  return transaction
+}
