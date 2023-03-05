@@ -12,12 +12,14 @@ export function NavBar() {
             </Link>
         </div>
         <div className='menu'>
-            <button className='menuButton'>TRANSAÇÕES</button>
+            <Link to="/transactions">
+              <button className='menuButton'>TRANSAÇÕES</button>
+            </Link>
             <button className='menuButton'>CONVERSOR</button>
             <button className='menuButton'>PLANEJAMENTO</button>
             <button className='menuButton'>CONTAS</button>
             <Link to="/login">
-            <button className="logoutButton" onClick={() => localStorage.clear()} >SAIR</button>
+              <button className="logoutButton" onClick={() => localStorage.clear()} >SAIR</button>
             </Link>
         </div>
      </div>   
