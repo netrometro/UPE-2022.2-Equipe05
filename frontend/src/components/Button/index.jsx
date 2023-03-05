@@ -1,3 +1,5 @@
+import './styles.css';
+
 export function Button({type, text}) {
 
     return (
