@@ -12,6 +12,15 @@ export function Home() {
   const data = JSON.parse(localStorage.getItem("wisewallet"));
   const decode = jwt(data.token);
 
+  const getIncome = async () => {
+    const income = await axios.get(`http://localhost:3001/transaction/${decode.id}/receita`, {
+      headers: {
+        Authorization: `Bearer ${data.token}`,
+      }
+    });
+    setIncome(income.data)
+  }
+
   const getUser = async () => {
     const user = await axios.get(`http://localhost:3001/user/${decode.id}`, {
       headers: {
@@ -22,10 +31,22 @@ export function Home() {
   }
 
   const [user, setUser] = useState({});
+  const [income, setIncome] = useState({});
   
   useEffect(() => {
     getUser();
   });
+
+  useEffect(() => {
+    getIncome();
+  }, []);
+
+  const getIncomeSum = (arr) => {
+    let sum = 0
+    for (let i = 0; i < arr.length; i++)
+      sum += arr[i].value
+    return sum
+  }
 
     return (
       <div className='homeBox'>
@@ -34,7 +55,7 @@ export function Home() {
 
         <div>
           <span>Receita</span>
-          <span>Valor:</span>
+          <span>Valor: {getIncomeSum(income)}</span>
         </div>
 
         <Link to="/add-transaction">
