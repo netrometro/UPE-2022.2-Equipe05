@@ -3,4 +3,56 @@
     flex-direction: column;
     background-color: #D9D9D9;
     height: 100vh;
+    align-items: center;
+}
+
+.homeBox .username{
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    align-self: flex-start;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 300px;
+}
+
+.homeBox .incomeCard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    width: 400px;
+    align-items: center;
+    font-weight: 200;
+}
+
+.homeBox .incomeCard .income{
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.homeBox .incomeCard span{
+    color: #091323;
+}
+
+.homeBox .username MdAccountCircle {
+    background-color: aqua;
+}
+
+.homeBox .username span {
+    color: #091323;
+    font-size: 100%;
+}
+
+.homeBox .username .name {
+    font-weight: 200;
+}
+
+.homeBox .username .ola {
+    font-weight: 700;
 }

@@ -29,11 +29,12 @@ export function TransactionBox() {
   }
 
   return (
-    <div>
+    <div className='transactionBox'>
       <form className="transaction-form" onSubmit={save}>
         <div className="add-transaction">
-          <label>Título</label>
-          <input required type="text" value={data.title} onChange={ev => setData({...data, title: ev.target.value})}/>
+          <label className='label'>Título 
+          <input className='textInput' required type="text" value={data.title} onChange={ev => setData({...data, title: ev.target.value})}/>
+          </label>
 
           <select required id="types" value={data.type} onChange={ev => setData({...data, type: ev.target.value})}>
             <option value="receita">Receita</option>
@@ -42,11 +43,11 @@ export function TransactionBox() {
           </select>
 
           <label>Valor
-            <input required type="number" inputMode="decimal" min="0" step=".01" value={data.value} onChange={ev => setData({...data, value: parseFloat(ev.target.value)})}/>
+            <input className='textInput' required type="number" inputMode="decimal" min="0" step=".01" value={data.value} onChange={ev => setData({...data, value: parseFloat(ev.target.value)})}/>
           </label>
 
           <label>Categoria
-            <input required type="text" value={data.category} onChange={ev => setData({...data, category: ev.target.value})}/>
+            <input className='textInput' required type="text" value={data.category} onChange={ev => setData({...data, category: ev.target.value})}/>
           </label>
 
           <label>Descrição
