@@ -1,0 +1,15 @@
+textarea {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+  
+    border-radius: 15px;
+    width: 400px;
+  
+    border: 1px solid #091323;
+    outline: 0;
+    box-shadow: 0;
+    resize: none;
+    margin-bottom: 10px;
+  }

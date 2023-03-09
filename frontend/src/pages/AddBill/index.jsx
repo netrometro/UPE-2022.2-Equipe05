@@ -1,6 +1,7 @@
 import { NavBar } from "../../components/NavBar"
 import { Button } from "../../components/Button"
 import { TextInput } from "../../components/TextInput";
+import { TextInputDescription } from "../../components/TextInputDescription";
 import "./styles.css"
 import jwt from 'jwt-decode';
 import axios from 'axios';
@@ -34,20 +35,25 @@ export function AddBill() {
       <div>
         <NavBar/>
       </div>
+      <div className="add-bill-box">
+      <div className="add-bil-text">
+        <span>Cadastrar contas a pagar</span>
+      </div>
       <div className="bill-inputs">
         <form onSubmit={save}>
-            <label htmlFor="">Título</label>
+            <label>Título</label>
             <TextInput value={data.title} onChange={ev => setData({...data, title: ev.target.value})}/>
-            <label htmlFor="">Valor</label>
+            <label>Valor</label>
             <TextInput type={"number"} value={data.value} onChange={ev => setData({...data, value: parseFloat(ev.target.value)})}/>
-            <label htmlFor="">Data de Vencimento</label>
+            <label>Data de Vencimento</label>
             <TextInput type={"date"} value={data.dueDate} onChange={ev => setData({...data, dueDate: ev.target.value})}/>
-            <label htmlFor="">Categoria</label>
+            <label>Categoria</label>
             <TextInput value={data.category} onChange={ev => setData({...data, category: ev.target.value})}/>
-            <label htmlFor="">Descrição</label>
-            <TextInput value={data.description} onChange={ev => setData({...data, description: ev.target.value})}/>
+            <label>Descrição</label>
+            <TextInputDescription value={data.description} onChange={ev => setData({...data, description: ev.target.value})}/>
             <Button text={"Salvar"} type={"submit"}/>
         </form>
+      </div>
       </div>
     </div>
   )

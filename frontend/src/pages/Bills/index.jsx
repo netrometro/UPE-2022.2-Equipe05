@@ -73,7 +73,7 @@ export function Bills() {
                 <button className="pay-button" onClick={() => deleteBill(data.id)}>Pagar</button>
               </td>
             </tr>
-              ) : null
+              ) : <div>Nada</div>
             }
           </tbody>
         </table>

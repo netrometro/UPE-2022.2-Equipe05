@@ -1,7 +1,36 @@
 .add-bill {
     background-color: #d9d9d9;
-    width: 100vw;
-    height: 100vh;
+    max-width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.add-bill form input {
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.add-bill form button {
+    margin-left: 50px;
+}
+
+.add-bill-box {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 620px;
+    background-color: white;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.07),0 4px 8px rgba(0,0,0,0.07),0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07),0 32px 64px rgba(0,0,0,0.07)
+}
+
+.add-bill .add-bil-text span {
+    font-size: 22px;
+    color: #091323;
+    margin-bottom: 10px;
 }
