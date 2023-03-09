@@ -22,7 +22,7 @@ exports.getById = async (req, res) => {
 
 exports.deleteById = async (req, res) => {
     try {
-        await deleteById(Number(req.params.userId))
+        await deleteById(Number(req.params.id))
         res.status(200).send()
     } catch (e) {
         console.log(e)

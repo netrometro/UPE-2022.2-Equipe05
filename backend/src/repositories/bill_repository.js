@@ -18,6 +18,6 @@ exports.deleteById =  async (id) => {
         where: {
             id
         }
-    })
+    });
     return;
 }
