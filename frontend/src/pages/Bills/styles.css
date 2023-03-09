@@ -22,7 +22,7 @@
 
 .card-bill .bill-name {
     font-weight: 600;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .card-bill span {
@@ -53,6 +53,12 @@
 
 .bill-table tbody tr {
     border-bottom: 1px solid #DDDDDD;
+}
+
+.bill-table tbody .bill-empty-text {
+    color: #091323;
+    font-size: 22px;
+    margin-left: 10px;
 }
 
 .bill-table tbody tr button {

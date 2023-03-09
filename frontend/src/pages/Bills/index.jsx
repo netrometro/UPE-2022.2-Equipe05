@@ -46,7 +46,7 @@ export function Bills() {
         <NavBar />
       </div>
       <div className="card-bill">
-        <span className="bill-name">CONTAS:</span>
+        <span className="bill-name">CONTAS PENDENTES:</span>
         <span>R${getBillSum(bill)}</span>
       </div>
       <div>
@@ -74,7 +74,7 @@ export function Bills() {
                 <button className="pay-button" onClick={() => deleteBill(data.id)}>Pagar</button>
               </td>
             </tr>
-              ) : <div>Nada</div>
+              ) : <span className="bill-empty-text">Nenhuma conta cadastrada...</span>
             }
           </tbody>
         </table>
