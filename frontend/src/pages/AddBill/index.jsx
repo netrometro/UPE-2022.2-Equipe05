@@ -1,18 +1,15 @@
 import { NavBar } from "../../components/NavBar"
 import { Button } from "../../components/Button"
 import "./styles.css"
-import { Link } from "react-router-dom";
 
-export function Bills() {
+export function AddBill() {
   return (
-    <div className="bills">
+    <div className="add-bill">
       <div>
         <NavBar/>
       </div>
       <div>
-        <Link to={"/add-bill"}>
-          <Button text={"Adicionar"}/>
-        </Link>
+        <span>Add bill</span>
       </div>
     </div>
   )
