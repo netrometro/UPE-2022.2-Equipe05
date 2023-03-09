@@ -17,7 +17,9 @@ export function NavBar() {
             </Link>
             <button className='menuButton'>CONVERSOR</button>
             <button className='menuButton'>PLANEJAMENTO</button>
-            <button className='menuButton'>CONTAS</button>
+            <Link to='/bills'>
+              <button className='menuButton'>CONTAS</button>
+            </Link>
             <Link to="/login">
               <button className="logoutButton" onClick={() => localStorage.clear()} >SAIR</button>
             </Link>
