@@ -50,7 +50,7 @@ export function Bills() {
         <span>R${getBillSum(bill)}</span>
       </div>
       <div>
-        <table>
+        <table className="bill-table">
           <thead>
             <tr>
               <th>Título</th>
@@ -58,6 +58,7 @@ export function Bills() {
               <th>Descrição</th>
               <th>Valor</th>
               <th>Data de vencimento</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
