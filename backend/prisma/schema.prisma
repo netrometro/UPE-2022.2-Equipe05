@@ -16,6 +16,7 @@ model User {
   email        String        @unique
   password     String
   transactions Transaction[]
+  bills        Bill[]
 }
 
 model Transaction {
@@ -28,4 +29,16 @@ model Transaction {
   value       Float
   description String
   date        DateTime @default(now())
+}
+
+model Bill {
+  id          Int      @id @default(autoincrement())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  title       String
+  value       Float
+  category    String
+  description String
+  date        DateTime @default(now())
+  dueDate     String
 }
