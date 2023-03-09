@@ -1,6 +1,6 @@
+import { MdAccountCircle } from "react-icons/md"
 import jwt from 'jwt-decode';
 import { Button } from "../../components/Button";
-import { TextInput } from "../../components/TextInput"
 import { NavBar } from "../../components/NavBar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
@@ -51,16 +51,23 @@ export function Home() {
     return (
       <div className='homeBox'>
         <NavBar/>
-        <span>Olá {user.name}</span>
 
-        <div>
-          <span>Receita</span>
-          <span>Valor: {getIncomeSum(income)}</span>
+        <div className='username'>
+          <MdAccountCircle size={40} style={{color: '#091323',}}/>
+          <span className='ola'>Olá,&#160;</span>
+          <span className='name'>{user.name}</span>
         </div>
 
-        <Link to="/add-transaction">
-          <Button text={"Adicionar"}/>
-        </Link>
+        <div className="incomeCard">
+          <span className="income">SALDO:</span>
+          <span>R${getIncomeSum(income)}</span>
+        </div>
+
+        <div>
+          <Link to="/add-transaction">
+            <Button text={"Adicionar"}/>
+          </Link>
+        </div>
       </div>
     )
   }
