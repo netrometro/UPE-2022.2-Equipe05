@@ -38,7 +38,6 @@ export function TransactionBox() {
 
           <select required id="types" value={data.type} onChange={ev => setData({...data, type: ev.target.value})}>
             <option value="receita">Receita</option>
-            <option value="conta">Conta</option>
             <option value="despesa">Despesa</option>
           </select>
 

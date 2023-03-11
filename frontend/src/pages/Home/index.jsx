@@ -21,6 +21,15 @@ export function Home() {
     setIncome(income.data)
   }
 
+  const getExpense = async () => {
+    const expense = await axios.get(`http://localhost:3001/transaction/${decode.id}/despesa`, {
+      headers: {
+        Authorization: `Bearer ${data.token}`,
+      }
+    });
+    setExpense(expense.data)
+  }
+
   const getUser = async () => {
     const user = await axios.get(`http://localhost:3001/user/${decode.id}`, {
       headers: {
@@ -32,14 +41,28 @@ export function Home() {
 
   const [user, setUser] = useState({});
   const [income, setIncome] = useState({});
+  const [expense, setExpense] = useState({});
   
   useEffect(() => {
     getUser();
-  });
+  }), [];
 
   useEffect(() => {
     getIncome();
   }, []);
+
+  useEffect(() => {
+    getExpense();
+  }), [];
+
+
+  const getExpensesSum = (arr) => {
+    let sum = 0
+    for (let i = 0; i < arr.length; i++)
+      sum += arr[i].value
+    return sum
+  }
+
 
   const getIncomeSum = (arr) => {
     let sum = 0
@@ -59,8 +82,13 @@ export function Home() {
         </div>
 
         <div className="incomeCard">
-          <span className="income">SALDO:</span>
+          <span className="income">RECEITAS:</span>
           <span>R${getIncomeSum(income)}</span>
+        </div>
+
+        <div className="incomeCard">
+          <span className="income">DESPESAS:</span>
+          <span>R${getExpensesSum(expense)}</span>
         </div>
 
         <div>
