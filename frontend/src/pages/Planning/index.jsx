@@ -46,6 +46,9 @@ export function Planning() {
                         ) : <span>Nenhuma caixinha cadastrada...</span>
                     }
                 </div>
+                <Link to="add-dreambox">
+                    <Button text={"Nova caixinha"}></Button>
+                </Link>
             </div>
         </div>
     )
