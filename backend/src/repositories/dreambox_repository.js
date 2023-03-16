@@ -31,7 +31,7 @@ exports.deleteById = async (id) => {
     return;
 }
 
-exports.update = async (id, data) => {
+exports.updateDreambox = async (id, data) => {
     const dreambox = await prisma.dreamBox.update({
         where: {
             id
