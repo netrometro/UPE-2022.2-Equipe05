@@ -1,0 +1,4 @@
+.planning {
+    display: flex;
+    flex-direction: column;
+}
