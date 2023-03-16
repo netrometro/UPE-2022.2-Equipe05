@@ -9,7 +9,7 @@ import { useState } from "react"
 
 export function AddDreamBox() {
     return(
-        <div className="add-dreambox-add">
+        <div className="add-dreambox-box">
             <NavBar/>
             <div className="add-dreambox-form">
                 <div className="add-dreambox-title">
