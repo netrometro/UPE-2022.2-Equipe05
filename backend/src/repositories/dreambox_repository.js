@@ -20,6 +20,7 @@ exports.getById = async (id) => {
             id
         }
     })
+    return dreambox;
 }
 
 exports.deleteById = async (id) => {
