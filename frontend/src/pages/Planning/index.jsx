@@ -32,7 +32,7 @@ export function Planning() {
         <div className="planning">
             <NavBar/>
             <div className="dreambox-box">
-                <span className="dreambox-title">Planejamento</span>
+                <span className="dreambox-title">Caixinhas</span>
                 <div className="dreambox">
                     {
                         dreambox?.length ? dreambox.map((data, index) =>
@@ -41,7 +41,7 @@ export function Planning() {
                                 <span>R${data.current}</span>
                                 <span>R${data.goal}</span>
                                 <button onClick={() => navigate("/add-value-dreambox", {state: {id: data.id}})}>Adicionar</button>
-
+                                <button>Finalizar</button>
                             </div>
                         ) : <span>Nenhuma caixinha cadastrada...</span>
                     }
