@@ -38,7 +38,7 @@ export function Planning() {
                         dreambox?.length ? dreambox.map((data, index) =>
                             <div className="dreambox-card" key={index}>
                                 <span className="dreambox-card-title">{data.name}:&ensp;</span>
-                                <span>R${data.current}</span>
+                                <span>R${data.current}/</span>
                                 <span>R${data.goal}</span>
                                 <button onClick={() => navigate("/add-value-dreambox", {state: {id: data.id}})}>Adicionar</button>
                                 <button>Finalizar</button>
