@@ -39,4 +39,5 @@ exports.updateDreambox = async (id, data) => {
         },
         data
     });
+    return dreambox;
 }
