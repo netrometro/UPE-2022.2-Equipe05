@@ -12,15 +12,17 @@ export function AddValueDreamBox() {
     return(
         <div className="add-value-dreambox-box">
             <NavBar/>
-            <div className="add-value-dreambox-title">
-                <span>Adicione um valor a caixinha&nbsp;</span>
-                <span className="add-value-dreambox-name">Caixinha</span>
+            <div className="add-value-dreambox-form">
+                <div className="add-value-dreambox-title">
+                    <span>Adicione um valor a caixinha&nbsp;</span>
+                    <span className="add-value-dreambox-name">Caixinha</span>
+                </div>
+                <form action="">
+                    <label>Valor a ser adicionado</label>
+                    <TextInput/>
+                    <Button text={"Adicionar"}/>
+                </form>
             </div>
-            <form action="">
-                <label>Valor a ser adicionado</label>
-                <TextInput/>
-                <Button text={"Adicionar"}/>
-            </form>
         </div>
     )
 }
