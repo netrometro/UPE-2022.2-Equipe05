@@ -7,20 +7,47 @@ import axios from 'axios';
 import { useEffect, useState } from 'react'
 
 export function Planning() {
-    const data = JSON.parse(localStorage.getItem("wisewallet"));
-    const decode = jwt(data.token)
+    const userData = JSON.parse(localStorage.getItem("wisewallet"));
+    const decode = jwt(userData.token)
 
     const navigate = useNavigate();
 
     const getDreamBox = async () => {
         const dreambox = await axios.get(`http://localhost:3001/dreamboxes/${decode.id}`, {
           headers: {
-            Authorization: `Bearer ${data.token}`,
+            Authorization: `Bearer ${userData.token}`,
           }
         });
-        console.log(dreambox.data)
         setDreambox(dreambox.data);
     }
+
+    const data = {
+        isActive: false
+    }
+
+    const updateDreamBox = async (id) => {
+        try {
+            console.log(typeof(id))
+            await axios.put(`http://localhost:3001/dreambox/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${userData.token}`,
+                }
+            })
+            alert("Caixinha finalizada");
+            getDreamBox();
+        } catch (e) {
+            alert("Ocorreu um erro! Tente novamente mais tarde.")
+        }
+    }
+
+    const deleteDreamBox = async (id) => {
+        await axios.delete(`http://localhost:3001/dreambox/${id}`, {
+          headers: {
+            Authorization: `Bearer ${userData.token}`,
+          },
+        });
+        getDreamBox();
+    };
 
     const [dreambox, setDreambox] = useState({});
 
@@ -37,11 +64,20 @@ export function Planning() {
                     {
                         dreambox?.length ? dreambox.map((data, index) =>
                             <div className="dreambox-card" key={index}>
-                                <span className="dreambox-card-title">{data.name}:&ensp;</span>
-                                <span>R${data.current}/</span>
-                                <span>R${data.goal}</span>
-                                <button onClick={() => navigate("/add-value-dreambox", {state: {id: data.id}})}>Adicionar</button>
-                                <button>Finalizar</button>
+                                <div>
+                                    <span className="dreambox-card-title">{data.name}:&ensp;</span>
+                                    <span>R${data.current}/</span>
+                                    <span>R${data.goal}</span>
+                                </div>
+                                {data.isActive ? 
+                                    <div>
+                                        <button onClick={() => navigate("/add-value-dreambox", {state: {id: data.id}})}>Adicionar</button>
+                                        <button onClick={() => updateDreamBox(data.id)}>Finalizar</button>
+                                    </div> : 
+                                    <div>
+                                        <div className="dreambox-finished">Finalizada</div>
+                                        <button onClick={() => deleteDreamBox(data.id)}>Excluir</button>
+                                    </div>}
                             </div>
                         ) : <span>Nenhuma caixinha cadastrada...</span>
                     }

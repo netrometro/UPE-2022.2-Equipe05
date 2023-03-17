@@ -9,6 +9,9 @@ exports.getByUserId = async (userId) => {
     const dreambox = await prisma.dreamBox.findMany({
         where: {
             userId
+        },
+        orderBy: {
+            isActive: 'desc'
         }
     })
     return dreambox;

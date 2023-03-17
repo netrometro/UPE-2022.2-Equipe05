@@ -42,6 +42,7 @@
     margin-bottom: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .dreambox span {
@@ -59,3 +60,22 @@
     height: 40px;
     margin-left: 15px;
 }
+
+.dreambox .dreambox-card .dreambox-finished {
+    width: 110px;
+    height: 40px;
+    border-radius: 15px;
+    margin-left: 15px;
+    background-color: #283246;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+
+.dreambox-finished:hover {
+    opacity: 0.8;
+  }
