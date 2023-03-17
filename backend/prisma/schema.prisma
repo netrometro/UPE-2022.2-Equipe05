@@ -17,6 +17,7 @@ model User {
   password     String
   transactions Transaction[]
   bills        Bill[]
+  dreamboxes   DreamBox[]
 }
 
 model Transaction {
@@ -41,4 +42,14 @@ model Bill {
   description String
   date        DateTime @default(now())
   dueDate     String
+}
+
+model DreamBox {
+  id       Int     @id @default(autoincrement())
+  name     String
+  current  Float
+  goal     Float
+  user     User    @relation(fields: [userId], references: [id])
+  userId   Int
+  isActive Boolean
 }
