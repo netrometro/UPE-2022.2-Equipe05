@@ -33,20 +33,25 @@ export function Planning() {
                     Authorization: `Bearer ${userData.token}`,
                 }
             })
-            alert("Caixinha finalizada");
+            alert("Caixinha finalizada!");
             getDreamBox();
         } catch (e) {
-            alert("Ocorreu um erro! Tente novamente mais tarde.")
+            alert("Ocorreu um erro, tente novamente mais tarde!")
         }
     }
 
     const deleteDreamBox = async (id) => {
-        await axios.delete(`http://localhost:3001/dreambox/${id}`, {
-          headers: {
-            Authorization: `Bearer ${userData.token}`,
-          },
-        });
-        getDreamBox();
+        try {
+            await axios.delete(`http://localhost:3001/dreambox/${id}`, {
+              headers: {
+                Authorization: `Bearer ${userData.token}`,
+              },
+            });
+            alert("Caixinha deletada!")
+            getDreamBox();
+        } catch (e) {
+            alert("Ocorreu um erro, tente novamente mais tarde!")
+        }
     };
 
     const [dreambox, setDreambox] = useState({});
