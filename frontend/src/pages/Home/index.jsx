@@ -5,6 +5,9 @@ import { NavBar } from "../../components/NavBar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Chart } from "chart.js/auto";
+import { Colors } from "chart.js/auto";
+import { Bar } from "react-chartjs-2";
 import "./styles.css"
 
 export function Home() {
@@ -71,6 +74,29 @@ export function Home() {
     return sum
   }
 
+  // BarChart
+  const barLabels = ["Entrada", "Saída", "Saldo"]
+  const barData = {
+    labels: barLabels,
+    datasets: [
+      {
+        label: "Dados:",
+        backgroundColor: [
+          "#00ff00",
+          "#ff0000",
+          "#ffff00"
+        ],
+        borderColor: "rgb(255, 99, 132)",
+        data: [getIncomeSum(income),
+          getExpensesSum(expense),
+          getIncomeSum(income)-getExpensesSum(expense)],
+        options: {
+          responsive: true
+        }
+      },
+    ],
+  }
+
     return (
       <div className='homeBox'>
         <NavBar/>
@@ -95,6 +121,10 @@ export function Home() {
           <Link to="/add-transaction">
             <Button text={"Adicionar"}/>
           </Link>
+        </div>
+
+        <div className="incomeCard">
+          <Bar data={barData}/>
         </div>
       </div>
     )
