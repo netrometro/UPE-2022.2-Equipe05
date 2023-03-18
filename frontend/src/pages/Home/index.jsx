@@ -48,7 +48,7 @@ export function Home() {
   
   useEffect(() => {
     getUser();
-  }), [];
+  }, []);
 
   useEffect(() => {
     getIncome();
@@ -56,7 +56,7 @@ export function Home() {
 
   useEffect(() => {
     getExpense();
-  }), [];
+  }, []);
 
 
   const getExpensesSum = (arr) => {
