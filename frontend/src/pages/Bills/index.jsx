@@ -42,9 +42,7 @@ export function Bills() {
 
   return (
     <div className="bills">
-      <div>
         <NavBar />
-      </div>
       <div className="card-bill">
         <span className="bill-name">CONTAS PENDENTES:</span>
         <span>R${getBillSum(bill)}</span>

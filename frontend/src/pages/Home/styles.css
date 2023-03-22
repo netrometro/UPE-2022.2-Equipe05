@@ -3,6 +3,9 @@
     flex-direction: column;
     background-color: #D9D9D9;
     height: 100vh;
+    height: 100%;
+    width: 100vw;
+    width: 100%;
     align-items: center;
 }
 

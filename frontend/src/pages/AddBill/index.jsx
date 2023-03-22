@@ -32,9 +32,7 @@ export function AddBill() {
 
   return (
     <div className="add-bill">
-      <div>
-        <NavBar/>
-      </div>
+      <NavBar/>
       <div className="add-bill-box">
       <div className="add-bil-text">
         <span>Cadastrar contas a pagar</span>
