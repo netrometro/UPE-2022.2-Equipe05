@@ -1,0 +1,7 @@
+.currency-converter {
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    width: 100vw;
+    height: 100vh;
+}
