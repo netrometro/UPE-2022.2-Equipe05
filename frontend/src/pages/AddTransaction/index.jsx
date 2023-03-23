@@ -6,10 +6,7 @@ export function AddTransaction() {
 
   return (
     <div className="transaction-page">
-      <div>
         <NavBar />
-      </div>
-
       <div>
         <TransactionBox />
       </div>
