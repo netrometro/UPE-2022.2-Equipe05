@@ -9,64 +9,90 @@ import { useEffect, useState } from 'react'
 
 export function CurrencyConverter() {
     let country_list = {"countries" : [
+        {"code" : "BRL", "name" : "Real Brasileiro"},
+        {"code" :"USD", "name" : "Dólar Americano"},
+        {"code" :"EUR", "name" : "Euro"},
+        {"code" : "ARS", "name" : "Peso Argentino"},
+        {"code": "CAD", "name" : "Dólar Canadense"},
+        {"code" :"JPY", "name" : "Iene Japonês"},
+        {"code" :"RUB", "name" : "Rublo Russo"},
+        {"code" : "BTC", "name": "Bitcoin"},
+        {"code" : "DOGE", "name" : "Dogecoin"},
+        {"code" :"ETH", "name" : "Ethereum"},
+        {"code" : "BOB", "name" : "Boliviano"},
+        {"code" : "CLP", "name" : "Peso Chileno"},
+        {"code" : "CHF", "name" : "Franco Suíço"},
         {"code" : "AED", "name" : "Dirham dos Emirados"},
         {"code" : "AOA", "name" : "Kwanza Angolano"},
-        {"code" : "ARS", "name" : "Peso Argentino"},
         {"code" : "AUD", "name" : "Dólar Australiano"},
         {"code" : "BHD", "name": "Dinar do Bahrein"},
-        {"code" : "BOB", "name" : "Boliviano"},
-        {"code" : "BRL", "name" : "Real Brasileiro"},
-        {"code" : "BTC", "name": "Bitcoin"},
-        {"code": "CAD", "name" : "Dólar Canadense"},
-        {"code" : "CHF", "name" : "Franco Suíço"},
-        {"code" : "CLP", "name" : "Peso Chileno"},
         {"code" : "CNY", "name" : "Yuan Chinês"},
         {"code" : "COP", "name" : "Peso Colombiano"},
         {"code" : "CUP", "name": "Peso Cubano"},
-        {"code" : "DOGE", "name" : "Dogecoin"},
         {"code" : "DOP", "name" : "Peso Dominicano"},
-        {"code" :"ETH", "name" : "Ethereum"},
-        {"code" :"EUR", "name" : "Euro"},
         {"code" :"HKD", "name" : "Dólar de Hong Kong"},
-        {"code" :"JPY", "name" : "Iene Japonês"},
         {"code" :"KRW", "name" : "Won Sul-Coreano"},
         {"code" :"MXN", "name" : "Peso Mexicano"},
         {"code" :"NZD", "name" : "Dólar Neozelandês"},
         {"code" :"PEN", "name" : "Sol do Peru"},
         {"code" :"PYG", "name" : "Guarani Paraguaio"},
-        {"code" :"RUB", "name" : "Rublo Russo"},
         {"code" :"SGD", "name" : "Dólar de Cingapura"},
         {"code" :"UAH", "name" : "Hryvinia Ucraniana"},
-        {"code" :"USD", "name" : "Dólar Americano"}
     ] }
 
+    const [from, setFrom] = useState("USD");
+    const [to, setTo] = useState("BRL");
+    const [value, setValue] = useState(1);
+
+    const getCurrency = async () => {
+        const currency = await axios.get(`https://economia.awesomeapi.com.br/last/${from}-${to}`);
+        setCurrency(currency.data)
+    };
+
     useEffect(() => {
-        console.log(country_list.countries);
-    })
+        getCurrency();
+    }, [])
+
+    const [currency, setCurrency] = useState({});
+
+    const getIncomeSum = () => {
+        const selectedCurrency = currency[from+to]
+        if (selectedCurrency) {
+            return selectedCurrency['bid'] * value;
+        } else {
+            return 0
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        getCurrency();
+    }
+
 
     return (
         <div className="currency-converter">
             <NavBar/>
             <div className="currency-converter-box">
-                <form action="" className="currency-converter-form">
+                <form className="currency-converter-form" onSubmit={handleSubmit}>
                     <label htmlFor="">De:</label>
-                    <select name="" id=""> 
-                    {country_list.countries.map((data, index) => 
+                    <select defaultValue={"USD"} onChange={ev => setFrom(ev.target.value)}> 
+                    {country_list.countries.map((data) => 
                         <option value={data.code}>{data.name}</option>
                     )
                     }
                     </select>
                     <label htmlFor="">Para:</label>
-                    <select name="" id="">
-                        { country_list.countries.map((data, index) => 
+                    <select defaultValue={"BRL"} onChange={ev => setTo(ev.target.value)}>
+                        { country_list.countries.map((data) => 
                             <option value={data.code}>{data.name}</option>
                         )
                         }
                     </select>
                     <label htmlFor="">Valor</label>
-                    <input type="number" min="0" />
-                    <span>Valor</span>
-                    <Button text={"Converter"}/>
+                    <input defaultValue={1} type="number" min="1" onChange={ev => setValue(ev.target.value)}/>
+                    <span>{to}:&#160;{getIncomeSum().toFixed(2)}</span>
+                    <Button text={"Converter"} type={"submit"}></Button>
                 </form>
             </div>
         </div>
