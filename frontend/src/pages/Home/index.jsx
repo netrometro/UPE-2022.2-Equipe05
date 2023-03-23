@@ -5,8 +5,6 @@ import { NavBar } from "../../components/NavBar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Chart } from "chart.js/auto";
-import { Colors } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import "./styles.css"
 

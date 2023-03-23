@@ -1,9 +1,6 @@
 import { NavBar } from "../../components/NavBar";
 import { Button } from "../../components/Button";
 import "./styles.css";
-import { Link } from "react-router-dom";
-import { TextInput } from "../../components/TextInput";
-import jwt from 'jwt-decode';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 

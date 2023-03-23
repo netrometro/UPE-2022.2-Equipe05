@@ -1,7 +1,7 @@
 import { NavBar } from "../../components/NavBar";
 import { Button } from "../../components/Button";
 import "./styles.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
