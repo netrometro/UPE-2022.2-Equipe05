@@ -22,7 +22,6 @@ export function CurrencyConverter() {
         {"code" : "BOB", "name" : "Boliviano"},
         {"code" : "CLP", "name" : "Peso Chileno"},
         {"code" : "CHF", "name" : "Franco Suíço"},
-        {"code" : "AED", "name" : "Dirham dos Emirados"},
         {"code" : "AOA", "name" : "Kwanza Angolano"},
         {"code" : "AUD", "name" : "Dólar Australiano"},
         {"code" : "BHD", "name": "Dinar do Bahrein"},
@@ -75,6 +74,7 @@ export function CurrencyConverter() {
             <NavBar/>
             <div className="currency-converter-box">
                 <form className="currency-converter-form" onSubmit={handleSubmit}>
+                    <span className="title">Conversor de Moedas</span>
                     <label htmlFor="">De:</label>
                     <select defaultValue={"USD"} onChange={ev => setFrom(ev.target.value)}> 
                     {country_list.countries.map((data) => 
@@ -90,8 +90,11 @@ export function CurrencyConverter() {
                         }
                     </select>
                     <label htmlFor="">Valor</label>
-                    <input defaultValue={1} type="number" min="1" onChange={ev => setValue(ev.target.value)}/>
-                    <span>{to}:&#160;{getIncomeSum().toFixed(2)}</span>
+                    <input defaultValue={1} type="number" min="1" onChange={ev => setValue(ev.target.value)} required/>
+                    <div className="currency-final-value">
+                        <span className="code">{to}:&#160;</span>
+                        <span>{getIncomeSum().toFixed(2)}</span>
+                    </div>
                     <Button text={"Converter"} type={"submit"}></Button>
                 </form>
             </div>
