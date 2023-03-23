@@ -15,7 +15,9 @@ export function NavBar() {
             <Link to="/transactions">
               <button className='menuButton'>TRANSAÇÕES</button>
             </Link>
-            <button className='menuButton'>CONVERSOR</button>
+            <Link to="/currency-converter">
+              <button className='menuButton'>CONVERSOR</button>
+            </Link>
             <Link to="/planning">
               <button className='menuButton'>PLANEJAMENTO</button>
             </Link>

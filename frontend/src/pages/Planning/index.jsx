@@ -1,7 +1,7 @@
 import { NavBar } from "../../components/NavBar";
 import { Button } from "../../components/Button";
 import "./styles.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
@@ -56,6 +56,10 @@ export function Planning() {
 
     const [dreambox, setDreambox] = useState({});
 
+    const formatMoney = (money) => {
+        return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(money);
+    }
+
     useEffect(() => {
         getDreamBox();
     }, [])
@@ -71,8 +75,8 @@ export function Planning() {
                             <div className="dreambox-card" key={index}>
                                 <div>
                                     <span className="dreambox-card-title">{data.name}:&ensp;</span>
-                                    <span>R${data.current}/</span>
-                                    <span>R${data.goal}</span>
+                                    <span>{formatMoney(data.current)}/</span>
+                                    <span>{formatMoney(data.goal)}</span>
                                 </div>
                                 {data.isActive ? 
                                     <div>

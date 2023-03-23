@@ -3,7 +3,6 @@ import { Button } from "../../components/Button";
 import { TextInput } from "../../components/TextInput";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./styles.css";
-import { Link } from "react-router-dom";
 import jwt from 'jwt-decode';
 import axios from 'axios';
 import { useEffect, useState } from 'react'

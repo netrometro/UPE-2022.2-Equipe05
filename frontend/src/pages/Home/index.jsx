@@ -5,8 +5,6 @@ import { NavBar } from "../../components/NavBar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Chart } from "chart.js/auto";
-import { Colors } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import "./styles.css"
 
@@ -66,6 +64,9 @@ export function Home() {
     return sum
   }
 
+  const formatMoney = (money) => {
+    return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(money);
+  }
 
   const getIncomeSum = (arr) => {
     let sum = 0
@@ -106,16 +107,23 @@ export function Home() {
           <span className='ola'>Olá,&#160;</span>
           <span className='name'>{user.name}</span>
         </div>
-
         <div className="incomeCard">
-          <span className="income">RECEITAS:</span>
-          <span>R${getIncomeSum(income)}</span>
+          <span className="income">SALDO:</span>
+          <span>{formatMoney(getIncomeSum(income)-getExpensesSum(expense))}</span>
         </div>
 
-        <div className="incomeCard">
-          <span className="income">DESPESAS:</span>
-          <span>R${getExpensesSum(expense)}</span>
-        </div>
+       <div className="income-expenses">
+          <div className="incomeCard">
+            <span className="income">ENTRADAS:</span>
+            <span>{formatMoney(getIncomeSum(income))}</span>
+          </div>
+
+          <div className="incomeCard">
+            <span className="income">SAÍDAS:</span>
+            <span>{formatMoney(getExpensesSum(expense))}</span>
+          </div>
+       </div>
+
 
         <div>
           <Link to="/add-transaction">

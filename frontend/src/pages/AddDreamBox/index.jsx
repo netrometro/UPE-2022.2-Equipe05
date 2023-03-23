@@ -1,7 +1,6 @@
 import { NavBar } from "../../components/NavBar"
 import { Button } from "../../components/Button"
 import { TextInput } from "../../components/TextInput";
-import { TextInputDescription } from "../../components/TextInputDescription";
 import "./styles.css"
 import jwt from 'jwt-decode';
 import axios from 'axios';
