@@ -30,6 +30,10 @@ export function Bills() {
 
   const [bill, setBill] = useState({});
 
+  const formatMoney = (money) => {
+    return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(money);
+  }
+
   useEffect(() => {
     getBills();
   }, []);
@@ -45,7 +49,7 @@ export function Bills() {
         <NavBar />
       <div className="card-bill">
         <span className="bill-name">CONTAS PENDENTES:</span>
-        <span>R${getBillSum(bill)}</span>
+        <span>{formatMoney(getBillSum(bill))}</span>
       </div>
       <div>
         <table className="bill-table">
@@ -66,7 +70,7 @@ export function Bills() {
               <td>{data.title}</td>
               <td>{data.category}</td>
               <td>{data.description}</td>
-              <td>R${data.value}</td>
+              <td>{formatMoney(data.value)}</td>
               <td>{data.dueDate}</td>
               <td>
                 <button className="pay-button" onClick={() => deleteBill(data.id)}>Pagar</button>

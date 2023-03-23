@@ -66,6 +66,9 @@ export function Home() {
     return sum
   }
 
+  const formatMoney = (money) => {
+    return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(money);
+  }
 
   const getIncomeSum = (arr) => {
     let sum = 0
@@ -108,18 +111,18 @@ export function Home() {
         </div>
         <div className="incomeCard">
           <span className="income">SALDO:</span>
-          <span>R${getIncomeSum(income)-getExpensesSum(expense)}</span>
+          <span>{formatMoney(getIncomeSum(income)-getExpensesSum(expense))}</span>
         </div>
 
        <div className="income-expenses">
           <div className="incomeCard">
             <span className="income">ENTRADAS:</span>
-            <span>R${getIncomeSum(income)}</span>
+            <span>{formatMoney(getIncomeSum(income))}</span>
           </div>
 
           <div className="incomeCard">
             <span className="income">SAÍDAS:</span>
-            <span>R${getExpensesSum(expense)}</span>
+            <span>{formatMoney(getExpensesSum(expense))}</span>
           </div>
        </div>
 
