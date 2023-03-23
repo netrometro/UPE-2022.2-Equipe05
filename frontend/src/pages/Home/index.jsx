@@ -106,16 +106,23 @@ export function Home() {
           <span className='ola'>Olá,&#160;</span>
           <span className='name'>{user.name}</span>
         </div>
-
         <div className="incomeCard">
-          <span className="income">RECEITAS:</span>
-          <span>R${getIncomeSum(income)}</span>
+          <span className="income">SALDO:</span>
+          <span>R${getIncomeSum(income)-getExpensesSum(expense)}</span>
         </div>
 
-        <div className="incomeCard">
-          <span className="income">DESPESAS:</span>
-          <span>R${getExpensesSum(expense)}</span>
-        </div>
+       <div className="income-expenses">
+          <div className="incomeCard">
+            <span className="income">ENTRADAS:</span>
+            <span>R${getIncomeSum(income)}</span>
+          </div>
+
+          <div className="incomeCard">
+            <span className="income">SAÍDAS:</span>
+            <span>R${getExpensesSum(expense)}</span>
+          </div>
+       </div>
+
 
         <div>
           <Link to="/add-transaction">
