@@ -54,7 +54,7 @@ export function CurrencyConverter() {
 
     const [currency, setCurrency] = useState({});
 
-    const getIncomeSum = () => {
+    const getTotal = () => {
         const selectedCurrency = currency[from+to]
         if (selectedCurrency) {
             return selectedCurrency['bid'] * value;
@@ -93,7 +93,7 @@ export function CurrencyConverter() {
                     <input defaultValue={1} type="number" min="1" onChange={ev => setValue(ev.target.value)} required/>
                     <div className="currency-final-value">
                         <span className="code">{to}:&#160;</span>
-                        <span>{getIncomeSum().toFixed(2)}</span>
+                        <span>{getTotal().toFixed(2)}</span>
                     </div>
                     <Button text={"Converter"} type={"submit"}></Button>
                 </form>
