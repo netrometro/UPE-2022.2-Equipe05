@@ -75,7 +75,7 @@ export function Home() {
     return sum
   }
 
-  // BarChart
+// BarChart
   const barLabels = ["Entrada", "Saída", "Saldo"]
   const barData = {
     labels: barLabels,
@@ -124,16 +124,16 @@ export function Home() {
           </div>
        </div>
 
-
         <div>
           <Link to="/add-transaction">
             <Button text={"Adicionar"}/>
           </Link>
         </div>
 
-        <div className="incomeCard">
-          <Bar data={barData}/>
-        </div>
       </div>
     )
   }
+        // <div className="incomeCard">
+        //   <Bar data={barData}/>
+        // </div>
+
