@@ -5,7 +5,7 @@ import { NavBar } from "../../components/NavBar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Bar } from "react-chartjs-2";
+import Plot from 'react-plotly.js'
 import "./styles.css"
 
 export function Home() {
@@ -43,7 +43,7 @@ export function Home() {
   const [user, setUser] = useState({});
   const [income, setIncome] = useState({});
   const [expense, setExpense] = useState({});
-  
+
   useEffect(() => {
     getUser();
   }, []);
@@ -65,7 +65,7 @@ export function Home() {
   }
 
   const formatMoney = (money) => {
-    return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(money);
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(money);
   }
 
   const getIncomeSum = (arr) => {
@@ -75,64 +75,58 @@ export function Home() {
     return sum
   }
 
-// BarChart
-  const barLabels = ["Entrada", "Saída", "Saldo"]
-  const barData = {
-    labels: barLabels,
-    datasets: [
-      {
-        label: "Dados:",
-        backgroundColor: [
-          "#00ff00",
-          "#ff0000",
-          "#ffff00"
-        ],
-        borderColor: "rgb(255, 99, 132)",
-        data: [getIncomeSum(income),
-          getExpensesSum(expense),
-          getIncomeSum(income)-getExpensesSum(expense)],
-        options: {
-          responsive: true
-        }
-      },
-    ],
-  }
+  return (
+    <div className='homeBox'>
+      <NavBar />
 
-    return (
-      <div className='homeBox'>
-        <NavBar/>
-
-        <div className='username'>
-          <MdAccountCircle size={40} style={{color: '#091323',}}/>
-          <span className='ola'>Olá,&#160;</span>
-          <span className='name'>{user.name}</span>
-        </div>
-        <div className="incomeCard">
-          <span className="income">SALDO:</span>
-          <span>{formatMoney(getIncomeSum(income)-getExpensesSum(expense))}</span>
-        </div>
-
-       <div className="income-expenses">
-          <div className="incomeCard">
-            <span className="income">ENTRADAS:</span>
-            <span>{formatMoney(getIncomeSum(income))}</span>
-          </div>
-
-          <div className="incomeCard">
-            <span className="income">SAÍDAS:</span>
-            <span>{formatMoney(getExpensesSum(expense))}</span>
-          </div>
-       </div>
-
-        <div>
-          <Link to="/add-transaction">
-            <Button text={"Adicionar"}/>
-          </Link>
-        </div>
-
+      <div className='username'>
+        <MdAccountCircle size={40} style={{ color: '#091323', }} />
+        <span className='ola'>Olá,&#160;</span>
+        <span className='name'>{user.name}</span>
       </div>
-    )
-  }
+      <div className="incomeCard">
+        <span className="income">SALDO:</span>
+        <span>{formatMoney(getIncomeSum(income) - getExpensesSum(expense))}</span>
+      </div>
+
+      <div className="income-expenses">
+        <div className="incomeCard">
+          <span className="income">ENTRADAS:</span>
+          <span>{formatMoney(getIncomeSum(income))}</span>
+        </div>
+
+        <div className="incomeCard">
+          <span className="income">SAÍDAS:</span>
+          <span>{formatMoney(getExpensesSum(expense))}</span>
+        </div>
+      </div>
+
+      <div>
+        <Plot data={[
+          {
+            x: ['Entrada', 'Saída', 'Saldo'],
+            y: [
+              getIncomeSum(income),
+              getExpensesSum(expense),
+              getIncomeSum(income) - getExpensesSum(expense)
+            ],
+            marker: {
+              color: ['green', 'red', 'yellow'],
+            },
+            type: 'bar',
+          },
+        ]}/>
+      </div>
+
+      <div>
+        <Link to="/add-transaction">
+          <Button text={"Adicionar"} />
+        </Link>
+      </div>
+
+    </div>
+  )
+}
         // <div className="incomeCard">
         //   <Bar data={barData}/>
         // </div>
