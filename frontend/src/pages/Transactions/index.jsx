@@ -3,6 +3,7 @@ import "./style.css"
 import jwt from 'jwt-decode';
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import * as XLSX from "xlsx"
 
 export function Transactions() {
   const data = JSON.parse(localStorage.getItem("wisewallet"));
@@ -42,6 +43,13 @@ export function Transactions() {
     console.log(transaction)
   }, []);
 
+  const saveXlsx = (transactions) => {
+    const worksheet = XLSX.utils.json_to_sheet(transactions);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, 'transactions.xlsx');
+  };
+
   return (
     <div className="transactions">
       <NavBar/>
@@ -77,6 +85,9 @@ export function Transactions() {
           </tbody>
         </table>
       </div>
+    <div>
+    <button onClick={() => saveXlsx(transaction)}>Salvar Planilha</button>
+    </div>
       </div>
       </div>
   )
