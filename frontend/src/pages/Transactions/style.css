@@ -10,4 +10,59 @@
 .transaction-body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.transaction-body .title {
+  margin-top: 50px;
+  color: #091323;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 0px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.07),0 4px 8px rgba(0,0,0,0.07),0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07),0 32px 64px rgba(0,0,0,0.07);
+  border-radius: 15px 15px 15px 15px;
+}
+
+.transaction-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  background-color: white;
+  box-shadow:0 1px 2px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.07),0 4px 8px rgba(0,0,0,0.07),0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07),0 32px 64px rgba(0,0,0,0.07);
+  border-radius: 15px 15px 15px 15px;
+  overflow: hidden;
+}
+
+.transaction-table thead tr {
+  background-color: #091323;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+}
+
+.transaction-table td, .transaction-table th {
+  padding: 12px 15px;
+}
+
+.transaction-table tbody tr {
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.transaction-table tbody .bill-empty-text {
+  color: #091323;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.transaction-table tbody tr button {
+  width: 100px;
+  height: 35px;
+}
+
+.transaction-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
 }
