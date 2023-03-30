@@ -23,3 +23,12 @@ exports.getByUserIdAndType = async (userId, type) => {
   })
   return transaction
 }
+
+exports.deleteById = async (id) => {
+  const transaction = await prisma.transaction.delete({
+      where: {
+          id
+      }
+  });
+  return;
+}
