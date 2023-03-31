@@ -1,5 +1,6 @@
 import { NavBar } from "../../components/NavBar"
 import "./style.css"
+import { Link, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode';
 import { useEffect, useState } from 'react'
 import axios from 'axios';
@@ -8,6 +9,8 @@ import * as XLSX from "xlsx"
 export function Transactions() {
   const data = JSON.parse(localStorage.getItem("wisewallet"));
   const decode = jwt(data.token);
+
+  const navigate = useNavigate();
 
   const getTransaction = async () => {
     const transaction = await axios.get(`http://localhost:3001/transaction/${decode.id}`, {
@@ -65,6 +68,7 @@ export function Transactions() {
               <th>Categoria</th>
               <th>Valor</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -76,6 +80,9 @@ export function Transactions() {
               <td>{data.description}</td>
               <td>{data.category}</td>
               <td>{formatMoney(data.value)}</td>
+              <td>
+                <button className="delete-button" onClick={() => navigate("/add-transaction", {state: {id: data.id}})}>Editar</button>
+              </td>
               <td>
                 <button className="delete-button" onClick={() => deleteTransaction(data.id)}>Excluir</button>
               </td>
