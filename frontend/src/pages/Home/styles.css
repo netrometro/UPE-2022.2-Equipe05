@@ -66,3 +66,7 @@
 .homeBox .username .ola {
     font-weight: 700;
 }
+
+.homeBox .home-add-button {
+    margin-bottom: 20px;
+}

@@ -101,6 +101,12 @@ export function Home() {
         </div>
       </div>
 
+      <div className="home-add-button">
+        <Link to="/add-transaction">
+          <Button text={"Adicionar"} />
+        </Link>
+      </div>
+
       <div>
         <Plot data={[
           {
@@ -117,17 +123,6 @@ export function Home() {
           },
         ]}/>
       </div>
-
-      <div>
-        <Link to="/add-transaction">
-          <Button text={"Adicionar"} />
-        </Link>
-      </div>
-
     </div>
   )
 }
-        // <div className="incomeCard">
-        //   <Bar data={barData}/>
-        // </div>
-
