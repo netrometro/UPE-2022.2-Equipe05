@@ -6,4 +6,5 @@ exports.transactionRoutes = app => {
   app.get("/transaction/:userId", verifyToken, getByUserId)
   app.get("/transaction/:userId/:type", verifyToken, getUserIdType)
   app.delete("/transaction/:id", verifyToken, deleteById)
+  app.put("/transaction/:id", verifyToken, update)
 }

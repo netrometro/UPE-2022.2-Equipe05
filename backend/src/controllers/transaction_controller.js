@@ -40,3 +40,13 @@ exports.deleteById = async (req, res) => {
       res.status(400).send(e);
   }
 }
+
+exports.update = async (req, res) => {
+  try {
+      const transaction = await updateTransaction(Number(req.params.id), req.body);
+      res.status(200).send(transaction);
+  } catch (e) {
+      console.log(e);
+      res.status(400).send(e);
+  }
+}

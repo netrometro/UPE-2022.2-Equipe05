@@ -32,3 +32,13 @@ exports.deleteById = async (id) => {
   });
   return;
 }
+
+exports.updateTransaction = async (id, data) => {
+  const transaction = await prisma.transaction.update({
+      where: {
+          id
+      },
+      data
+  });
+  return transaction;
+}
