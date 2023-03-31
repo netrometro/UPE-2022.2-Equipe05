@@ -15,40 +15,48 @@ export function UpdateTransaction() {
     const decode = jwt(userData.token);
     const transactionId = location?.state?.id
 
+    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
+    const [type, setType] = useState('');
+    const [value, setValue] = useState(0);
+
     const getTransactionById = async () => {
         try {
-            const dreamBox = await axios.get(`http://localhost:3001/transaction/${transactionId}`, {
+            const transaction = await axios.get(`http://localhost:3001/transaction-id/${transactionId}`, {
             headers: {
                 Authorization: `Bearer ${userData.token}`,
             }
             });
-            setTransactionById(dreamBox.data)
+            setTitle(transaction.data.title)
+            setCategory(transaction.data.category)
+            setDescription(transaction.data.description)
+            setType(transaction.data.type)
+            setValue(transaction.data.value)
         } catch (e) {
             console.log(e)
         }
     }
 
-    const [transactionById, setTransactionById] = useState({});
-
-    const [data, setData] = useState({
+    const data = {
         userId: decode.id,
-        title: transactionById.title,
-        category: transactionById.category,
-        description: transactionById.description,
-        type: transactionById.type,
-        value: transactionById.value
-    })
+        title: title,
+        category: category,
+        description: description,
+        type: type,
+        value: value
+    }
 
-    const updateDreamBox = async (ev) => {
+    const updateTransaction = async (ev) => {
         try {
             ev.preventDefault();
-            await axios.put(`http://localhost:3001/dreambox/${location?.state?.id}`, data, {
+            await axios.put(`http://localhost:3001/transaction/${transactionId}`, data, {
                 headers: {
                     Authorization: `Bearer ${userData.token}`,
                 }
             })
-            alert("Valor adicionado com sucesso");
-            navigate("/planning")
+            alert("Transação alterada com sucesso");
+            navigate("/transactions")
         } catch (e) {
             ev.preventDefault();
             alert("Ocorreu um erro! Tente novamente mais tarde.")
@@ -56,38 +64,40 @@ export function UpdateTransaction() {
     }
 
     useEffect(() => {
+        getTransactionById()
         if (!transactionId) {
             navigate("/transactions")
         }
-        getTransactionById()
     },[]);
 
 
     return (
+        
         <div className="transaction-page">
+            {console.log(data.title)}
             <NavBar/>
             <div>
-                <form className="transaction-form">
+                <form className="transaction-form" onSubmit={updateTransaction}>
                     <div className="add-transaction">
                     <label className='label'>Título 
-                    <input className='textInput' required type="text" value={data.title} onChange={ev => setData({...data, title: ev.target.value})}/>
+                    <input className='textInput' required type="text" value={title} onChange={ev => setTitle(ev.target.value)}/>
                     </label>
 
-                    <select required id="types" value={data.type} onChange={ev => setData({...data, type: ev.target.value})}>
+                    <select required id="types" value={type} onChange={ev => setType(ev.target.value)}>
                         <option value="receita">Receita</option>
                         <option value="despesa">Despesa</option>
                     </select>
 
                     <label>Valor
-                        <input className='textInput' required type="number" inputMode="decimal" min="0" step=".01" value={data.value} onChange={ev => setData({...data, value: parseFloat(ev.target.value)})}/>
+                        <input className='textInput' required type="number" inputMode="decimal" min="0" step=".01" value={value} onChange={ev => setValue(parseFloat(ev.target.value))}/>
                     </label>
 
                     <label>Categoria
-                        <input className='textInput' required type="text" value={data.category} onChange={ev => setData({...data, category: ev.target.value})}/>
+                        <input className='textInput' required type="text" value={category} onChange={ev => setCategory(ev.target.value)}/>
                     </label>
 
                     <label>Descrição
-                        <input required type="text" className="description" value={data.description} onChange={ev => setData({...data, description: ev.target.value})}/>
+                        <input required type="text" className="description" value={description} onChange={ev => setDescription(ev.target.value)}/>
                     </label>
 
                     <button type="submit">Salvar</button>
