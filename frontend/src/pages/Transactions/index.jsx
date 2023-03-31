@@ -1,4 +1,5 @@
 import { NavBar } from "../../components/NavBar"
+import { Button } from "../../components/Button"
 import "./style.css"
 import { Link, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode';
@@ -87,13 +88,16 @@ export function Transactions() {
                 <button className="delete-button" onClick={() => deleteTransaction(data.id)}>Excluir</button>
               </td>
             </tr>
-              ) : <span className="transaction-empty-text">Nenhuma conta cadastrada...</span>
+              ) : <span className="transaction-empty-text">Nenhuma transação cadastrada...</span>
             }
           </tbody>
         </table>
       </div>
-    <div>
-    <button onClick={() => saveXlsx(transaction)}>Salvar Planilha</button>
+    <div className="buttons">
+      <Link to="/add-transaction">
+        <Button text={"Adicionar"} />
+      </Link>
+      <button onClick={() => saveXlsx(transaction)}>Salvar Planilha</button>
     </div>
       </div>
       </div>

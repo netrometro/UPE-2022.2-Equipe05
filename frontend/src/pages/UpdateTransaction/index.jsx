@@ -1,6 +1,5 @@
 import { NavBar } from "../../components/NavBar";
-import { Button } from "../../components/Button";
-import { TextInput } from "../../components/TextInput";
+import { TextInputDescription } from "../../components/TextInputDescription"
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode';
 import axios from 'axios';
@@ -79,31 +78,30 @@ export function UpdateTransaction() {
             <div>
                 <form className="transaction-form" onSubmit={updateTransaction}>
                     <div className="add-transaction">
-                    <label className='label'>Título 
-                    <input className='textInput' required type="text" value={title} onChange={ev => setTitle(ev.target.value)}/>
-                    </label>
+                        <label className='label'>Título 
+                        <input className='textInput' required type="text" value={title} onChange={ev => setTitle(ev.target.value)}/>
+                        </label>
 
-                    <select required id="types" value={type} onChange={ev => setType(ev.target.value)}>
-                        <option value="receita">Receita</option>
-                        <option value="despesa">Despesa</option>
-                    </select>
+                        <select required id="types" value={type} onChange={ev => setType(ev.target.value)}>
+                            <option value="receita">Receita</option>
+                            <option value="despesa">Despesa</option>
+                        </select>
 
-                    <label>Valor
-                        <input className='textInput' required type="number" inputMode="decimal" min="0" step=".01" value={value} onChange={ev => setValue(parseFloat(ev.target.value))}/>
-                    </label>
+                        <label>Valor
+                            <input className='textInput' required type="number" inputMode="decimal" min="0" step=".01" value={value} onChange={ev => setValue(parseFloat(ev.target.value))}/>
+                        </label>
 
-                    <label>Categoria
-                        <input className='textInput' required type="text" value={category} onChange={ev => setCategory(ev.target.value)}/>
-                    </label>
+                        <label>Categoria
+                            <input className='textInput' required type="text" value={category} onChange={ev => setCategory(ev.target.value)}/>
+                        </label>
 
-                    <label>Descrição
-                        <input required type="text" className="description" value={description} onChange={ev => setDescription(ev.target.value)}/>
-                    </label>
-
-                    <button type="submit">Salvar</button>
+                        <label>Descrição
+                            <TextInputDescription value={description} onChange={ev => setDescription(ev.target.value)}/>
+                        </label>
+                        <button type="submit">Salvar</button>
                     </div>
                 </form>
-                        </div>
+            </div>
         </div>
     )
 }

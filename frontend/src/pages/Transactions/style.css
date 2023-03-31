@@ -66,3 +66,13 @@
 .transaction-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
+
+.transaction-empty-text {
+  font-size: 22px;
+  color: #091323;
+}
+
+.buttons {
+  width: 560px;
+  justify-content: space-between;
+}
