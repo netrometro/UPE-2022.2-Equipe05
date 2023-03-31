@@ -14,6 +14,7 @@ import { AddValueDreamBox } from "../pages/AddValueDreamBox"
 import { CurrencyConverter } from "../pages/CurrencyConverter"
 import { AddPlan } from "../pages/AddPlan"
 import { AddValuePlan } from "../pages/AddValuePlan"
+import { UpdateTransaction } from "../pages/UpdateTransaction"
 
 export function AppRoutes() {
     return(
@@ -32,6 +33,7 @@ export function AppRoutes() {
                 <Route path="/currency-converter" element={<Private Component={CurrencyConverter}/>}/>
                 <Route path="/add-plan" element={<Private Component={AddPlan}/>}/>
                 <Route path="/add-value-plan" element={<Private Component={AddValuePlan}/>}/>
+                <Route path="/update-transaction" element={<Private Component={UpdateTransaction}/>}/>
             </Routes>
         </BrowserRouter>
     )

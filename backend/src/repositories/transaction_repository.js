@@ -42,3 +42,12 @@ exports.updateTransaction = async (id, data) => {
   });
   return transaction;
 }
+
+exports.getById = async (id) => {
+  const transaction = await prisma.transaction.findUnique({
+      where: {
+          id
+      }
+  })
+  return transaction;
+}

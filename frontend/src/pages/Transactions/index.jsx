@@ -81,7 +81,7 @@ export function Transactions() {
               <td>{data.category}</td>
               <td>{formatMoney(data.value)}</td>
               <td>
-                <button className="delete-button" onClick={() => navigate("/add-transaction", {state: {id: data.id}})}>Editar</button>
+                <button className="delete-button" onClick={() => navigate("/update-transaction", {state: {id: data.id}})}>Editar</button>
               </td>
               <td>
                 <button className="delete-button" onClick={() => deleteTransaction(data.id)}>Excluir</button>
